@@ -1,0 +1,4 @@
+interface:
+  display_name: "M3 Expressive Product UI"
+  short_description: "Design and implement Google-family Material 3 Expressive interfaces."
+  brand_color: "#4285F4"
