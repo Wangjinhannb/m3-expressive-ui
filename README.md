@@ -1,4 +1,8 @@
-﻿# M3 Expressive Product UI Skill
+## Download
+
+[Download the latest M3 Expressive UI Skill](https://github.com/Wangjinhannb/m3-expressive-ui/releases/latest/download/skill.zip)
+ 
+ # M3 Expressive Product UI Skill
 
 A reusable ChatGPT skill for designing and implementing interfaces with **Material Design 3 + Material 3 Expressive** principles and a disciplined Google-family visual grammar.
 
