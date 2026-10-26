@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#090806" />
+  <title>WANXIANG / Lion V4</title>
+  <link rel="stylesheet" href="./src/styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main id="app">
+    <div id="stage" aria-label="佛山醒狮实时三维场景"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span>WANXIANG</span>
+        <span class="brand-cn">/ 湾区万象</span>
+      </div>
+      <div class="edition">INTERACTIVE HERITAGE STUDY · 2026</div>
+      <div class="top-actions">
+        <button id="soundButton" class="quiet-button" type="button" aria-label="声音">SOUND</button>
+        <button id="resetButton" class="quiet-button" type="button">RESET</button>
+      </div>
+    </header>
+
+    <section class="chapter">
+      <div class="chapter-index">03</div>
+      <h1>狮</h1>
+      <p>佛山醒狮</p>
+      <span>FOSHAN LION DANCE</span>
+    </section>
+
+    <section class="interaction-hint" aria-live="polite">
+      <strong>DRAG TO LOOK</strong>
+      <span>拖动观察 · 轻击唤醒</span>
+    </section>
+
+    <nav class="chapter-nav" aria-label="章节">
+      <span>00 启</span>
+      <span>01 绣</span>
+      <span>02 戏</span>
+      <span class="active">03 狮</span>
+      <span>04 生</span>
+    </nav>
+
+    <div class="loading" id="loading">
+      <span></span>
+      <p>SCULPTING LIGHT</p>
+    </div>
+
+    <aside class="debug-panel" id="debugPanel" hidden>
+      <div class="debug-head">
+        <b>V4 TUNING</b>
+        <span>D</span>
+      </div>
+      <label>Exposure <input data-key="exposure" type="range" min="0.65" max="1.8" value="1.08" step="0.01"></label>
+      <label>Bloom <input data-key="bloom" type="range" min="0" max="0.8" value="0.18" step="0.01"></label>
+      <label>Camera sway <input data-key="cameraSway" type="range" min="0" max="1.5" value="0.7" step="0.01"></label>
+      <label>Key light <input data-key="keyLight" type="range" min="0" max="12" value="5.4" step="0.1"></label>
+      <label>Rim light <input data-key="rimLight" type="range" min="0" max="8" value="2.2" step="0.1"></label>
+      <label>Idle breath <input data-key="breath" type="range" min="0" max="1" value="0.24" step="0.01"></label>
+    </aside>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

@@ -1,82 +1,73 @@
-## Download
+﻿# WANXIANG V4 - Lion Pass 1
 
-[Download the latest M3 Expressive UI Skill](https://github.com/Wangjinhannb/m3-expressive-ui/releases/latest/download/skill.zip)
- 
- # M3 Expressive Product UI Skill
+This branch is an isolated visual-quality prototype for the Lion chapter of WANXIANG.
 
-A reusable ChatGPT skill for designing and implementing interfaces with **Material Design 3 + Material 3 Expressive** principles and a disciplined Google-family visual grammar.
+## Goal
 
-This project was created after analyzing a reference video about "Google style" and cross-checking the ideas against official Google Design, Android Material 3, Pixel/Android, Gmail, Calendar, Meet, Gemini, and related product design sources.
+The target is not "a working Three.js demo". The target is a frame that can stand alone as a refined digital-art scene, then remain convincing when the viewer drags the camera or inspects details.
 
-## What this skill is for
+This pass focuses only on:
 
-Use it when you want to:
+- restrained camera parallax and drag-to-look;
+- separate material responses for paper shell, lacquer, metallic gold, fur and cloth;
+- layered lighting instead of flat ambient light;
+- independent eye, brow, ear, jaw and mane responses;
+- subtle idle motion so the scene never feels frozen;
+- tap / Space drum impulses;
+- mobile-aware rendering budget;
+- a hidden tuning panel for repeated visual iteration.
 
-- Design a new website or app in a current Material 3 / Pixel-like visual language.
-- Restyle an existing product without destroying its information architecture.
-- Build a consistent UI family across multiple products.
-- Review screenshots or frontend code for Material 3 consistency.
-- Generate design tokens, components, responsive layouts, and implementation code.
-- Apply the style to dense products such as trading, finance, admin, or developer tools without turning them into oversized card dashboards.
+## Run
 
-## Key idea
+Use a local HTTP server. Direct file opening may be blocked by browser ES-module rules.
 
-The target is not "Google four colors + rounded corners."
+### Option A - VS Code
 
-The system is based on:
+Open the folder and use Live Server.
 
-- Semantic tonal color roles.
-- Shape hierarchy and containment.
-- Scale and emphasized typography.
-- Purposeful spring/morphing motion.
-- Product-specific density.
-- Shared family grammar with room for each product to remain distinct.
+### Option B - Python
 
-## Brand anchors
-
-The skill keeps these four colors available for brand moments:
-
-- Blue `#4285F4`
-- Red `#EA4335`
-- Yellow `#FBBC05`
-- Green `#34A853`
-
-Routine UI should use Material semantic roles derived from tonal palettes rather than scattering these four hex values everywhere.
-
-## Structure
-
-```text
-m3-expressive-ui/
-├── SKILL.md
-├── README.md
-├── agents/
-│   └── openai.yaml
-├── assets/
-│   └── m3-googleish-tokens.css
-├── scripts/
-│   └── theme_audit.py
-└── references/
-    ├── color-and-theme.md
-    ├── components.md
-    ├── google-product-patterns.md
-    ├── implementation.md
-    ├── motion.md
-    ├── product-archetypes.md
-    ├── research-sources.md
-    ├── review-rubric.md
-    ├── shape-and-containment.md
-    ├── typography-and-icons.md
-    └── video-principles.md
+```powershell
+python -m http.server 8080
 ```
 
-## Example prompts
+This command starts a simple local web server in the current folder so browser ES modules can load correctly.
 
-- "Design a crypto exchange homepage using this skill. Keep exchange-level data density, but make it feel like Material 3 Expressive rather than Gate/Bybit styling."
-- "Restyle this React dashboard into a quiet Material 3 Expressive productivity UI."
-- "Review this screenshot and tell me exactly what prevents it from feeling like a current Google product."
-- "Build a Gemini-like AI workspace using original branding and Material 3 Expressive motion."
-- "Create light and dark design tokens for this product and implement them in Tailwind."
+Then open:
 
-## Independence and trademarks
+```text
+http://localhost:8080
+```
 
-Material Design is a Google design system. This repository is an independent skill and is not an official Google project. Do not redistribute proprietary Google font files, Google product icons, logos, or copied product layouts.
+## Controls
+
+- Move pointer: very small camera parallax.
+- Drag: constrained look-around.
+- Click / tap: wake impulse.
+- Space: wake impulse.
+- Sound: enables synthesized drum feedback.
+- D: opens the tuning panel.
+- Reset: returns to the authored framing.
+
+## Important
+
+This is a visual-quality benchmark scene, not the final culturally verified lion model.
+
+The current geometry is built in code so camera, materials, lighting and interaction can be tuned immediately. The final competition build should replace the procedural lion geometry with a culturally verified optimized GLB while preserving the same camera, material separation and interaction rig.
+
+## Reference direction
+
+A downloadable cultural-heritage lion head model from Hong Kong Shue Yan University's Teaching and Learning Development Office is available on Sketchfab under CC Attribution. It is useful as a form reference, but at about 1.1M triangles it should be retopologized before use in a mobile web build.
+
+## Tech
+
+- Three.js 0.186.1
+- EffectComposer
+- restrained UnrealBloomPass
+- SMAA on desktop
+- ACES Filmic tone mapping
+- procedural fiber bump texture
+- custom damped spring responses
+- Web Audio drum synthesis
+
+No AI-generated image is used as a runtime scene texture.
